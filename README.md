@@ -10,3 +10,4 @@ Useful links for Django 1.11
 * [django-admin](https://docs.djangoproject.com/en/1.11/ref/django-admin/)
 * [settings](https://docs.djangoproject.com/en/1.11/topics/settings/)
 * [url dispatcher](https://docs.djangoproject.com/en/1.11/topics/http/urls/)
+* [deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/)
