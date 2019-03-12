@@ -4,24 +4,44 @@ from django.shortcuts import  get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import loader
 from django.urls import reverse
+from django.views import generic
 from .models import Choice, Question
 
 # last 5 questions
 # using render does not require loader import
 # since it knows how to work with templates
-def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list}
-    return render(request, 'polls/index.html', context)
 
-def detail(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/detail.html', {'question': question})
+class IndexView(generic.ListView):
+    # generic.ListView will display list of objects
+    # uses default template <app name>/<model name>_list.html
+    # unless specified here
+    template_name = 'polls/index.html'
+    # default context_object_name is question_list
+    context_object_name = 'latest_question_list'
 
-def results(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/results.html', {'question': question})
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Question.objects.order_by('-pub_date')[:5]
 
+# because this code is so common Django offers generic
+# to simplify this common case
+# def detail(request, question_id):
+#    question = get_object_or_404(Question, pk=question_id)
+#    return render(request, 'polls/detail.html', {'question': question})
+class DetailView(generic.DetailView):
+    # generic.DetailView will display detail for an object
+    model = Question
+    # generic.DetailView default template name is <app name>/<model name>_detail.html.
+    # we want a different appearance for our DetailView and ResultsView so we give them
+    # different templates
+    # if not using that, then set here
+    template_name = 'polls/detail.html'
+
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = 'polls/results.html'
+
+# no generic for custom code like this
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
