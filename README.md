@@ -2,6 +2,8 @@
 
 using Django version 1 because I need to learn how to migrate to version 2
 
+This tutorial is complete for Django 1.  It is follows the tutorial with the addtion of comments
+
 * using Django 1.11
 * using Python 3.7.0
 
