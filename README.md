@@ -15,22 +15,7 @@ Useful links for Django 1.11
 * [deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/)
 
 
-
-
-
 # Django notes
-
-
-[TOC]
-
-
-
-# Django notes looking but not running John's code
-
-To quick start this project we will start with the Django demo code John Appert created.  This code may be found in John's [private repository on github](https://github.com/jjapp/standvastHMS/)
-
-From the [requirements.txt](https://github.com/jjapp/standvastHMS/blob/master/requirements.txt) this code using Django 1.11.3.  According to the [Django project download page ](https://www.djangoproject.com/download/)and the [FAQ ](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
-
 
 
 *   Django 1.11 ended 'mainstream support' on December 2, 2017
@@ -41,28 +26,6 @@ From the [requirements.txt](https://github.com/jjapp/standvastHMS/blob/master/re
 *   Python 2 is [end-of-life](https://pythonclock.org/) Jan 1, 2020
 *   Django 2 is [not backward compatible](https://docs.djangoproject.com/en/2.1/releases/2.0/#backwards-incompatible-2-0)
 *   Many [python modules and projects are committed](https://python3statement.org/) to dropping support for python 2 in 2020
-
-Actions to consider for John's code
-
-
-
-*   Run John's demo app
-*   Review functionality and workflow
-*   Upgrade to most recent Django 1.11 to include security patches
-*   Use python 3
-*   Create tests
-*   Create source code repository for app
-*   Evaluate level of effort to upgrade to Django 2
-*   Run ``manage.py check` `on project
-*   Add [test coverage](https://docs.djangoproject.com/en/1.11/topics/testing/advanced/#topics-testing-code-coverage) report
-*   Evaluate code for [race conditions](https://docs.djangoproject.com/en/1.11/ref/models/expressions/#avoiding-race-conditions-using-f)?
-*   Evaluate code for [Cross Site Request Forgeries protection](https://docs.djangoproject.com/en/1.11/ref/csrf/)
-*   Use postgresql database
-    *   Django need create database permissions to run tests
-*   Evaluate and select platform to run on
-*   Identity management integration
-*   For more complex views consider [class based views ](https://docs.djangoproject.com/en/1.11/topics/class-based-views/intro/)
-
 
 # Django tutorial
 
